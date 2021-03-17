@@ -1,0 +1,1 @@
+[Preview](https://rick-and-morty-gui.herokuapp.com/)
