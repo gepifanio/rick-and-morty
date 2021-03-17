@@ -1,5 +1,6 @@
 <template>
   <div>
+    <HelloWorld msg="Hello Vue 3.0 + Vite" />
     <div class="test">Hello {{ name }}!</div>
     <h1>{{ $store.state.count }}</h1>
     <button @click="increment">Increment</button>
@@ -17,7 +18,13 @@
 </template>
 
 <script>
+import HelloWorld from './components/HelloWorld.vue'
+
 export default {
+  name: "App",
+  components: {
+    HelloWorld
+  },
   data() {
     return {
       name: "Vue",
