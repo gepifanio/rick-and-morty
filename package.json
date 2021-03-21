@@ -18,6 +18,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.1.5",
     "@vue/compiler-sfc": "^3.0.4",
-    "vite": "^2.1.2"
+    "vite": "^2.1.2",
+    "autoprefixer": "^9.8.6",
+    "postcss-nested": "^4.2.3"
   }
 }
