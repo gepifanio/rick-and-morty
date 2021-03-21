@@ -3,7 +3,7 @@
     <button
       ref="trigger"
       aria-controls="modal"
-      class="modal__open"
+      class="btn modal__open"
       @click="openDialog">
       <span
         v-html="trigger" />

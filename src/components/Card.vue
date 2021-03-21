@@ -1,17 +1,10 @@
 <template>
-  <div>
-    <div>
-      <FigureRounded small :background-image="thumb" :aria-label="ariaLabel" />
-    </div>
-    <div>
-      <div>
-        <h3>
-          {{ title }}
-        </h3>
-        <p>
-          {{ text }}
-        </p>
-      </div>
+  <div class="card">
+    <FigureRounded small :background-image="thumb" :aria-label="ariaLabel" />
+    <div class="card__content">
+      <h2>
+        {{ text }}
+      </h2>
     </div>
   </div>
 </template>
@@ -32,10 +25,6 @@ export default {
       type: String,
       default: '',
     },
-    title: {
-      type: String,
-      default: '',
-    },
     text: {
       type: String,
       default: '',
@@ -45,5 +34,17 @@ export default {
 </script>
 
 <style>
+.card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 16px;
 
+  &__content {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>
