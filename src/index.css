@@ -6,7 +6,7 @@ html {
 }
 
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Helvetica','Arial',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -15,13 +15,33 @@ html {
 }
 
 .btn {
+  cursor: pointer;
   font-size: 18px;
   font-weight: 600;
   width: 100%;
   padding: 8px 12px;
   border-radius: 4px;
+  background-color: rgb(60, 62, 68);
+  color: #fff;
 
   & + & {
     margin-left: 16px;
+  }
+
+  &:disabled {
+    background-color: rgb(182, 174, 174);
+  }
+
+  &--animated {
+    animation: searchPulse 2s infinite alternate;
+  }
+}
+
+@keyframes searchPulse {
+  from {
+    box-shadow: 0 0 9px rgb(27, 27, 27);
+  }
+  to {
+    box-shadow: 0 0 18px rgb(27, 27, 27);
   }
 }
