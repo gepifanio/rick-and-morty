@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h1>test popup</h1>
     <div>{{ data }}</div>
-    <button>close</button>
   </div>
 </template>
 
@@ -10,7 +8,7 @@
 export default {
   props: {
     data: {
-      type: Array,
+      type: Object,
       default: '',
     },
   },
