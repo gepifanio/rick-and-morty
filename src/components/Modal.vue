@@ -27,7 +27,7 @@
           <slot />
           <br>
           <button
-            class="modal__close"
+            class="btn modal__close"
             aria-label="Close Dialog"
             type="button"
             @click="closeDialog">
@@ -130,9 +130,9 @@ body > div[aria-hidden='true']:not(#sitemap) {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: calc(100vw - 3.75rem);
-    max-height: calc(100vh - 3.75rem);
-    padding: 4rem 1.25rem 0;
+    width: calc(100vw - 60px);
+    max-height: calc(100vh - 60px);
+    padding: 64px 20px 0;
     overflow: auto;
     transform: translateX(-50%) translateY(-50%);
     transition: opacity .15s ease-out;
@@ -152,7 +152,7 @@ body > div[aria-hidden='true']:not(#sitemap) {
 
     /* decorative styles */
     background-color: rgba(34, 34, 34, .8);
-    box-shadow: 0 3.75rem 0 0 rgba(34, 34, 34, .8);
+    box-shadow: 0 60px 0 0 rgba(34, 34, 34, .8);
 
     .modal__modal {
       opacity: 1;
@@ -160,10 +160,10 @@ body > div[aria-hidden='true']:not(#sitemap) {
   }
 }
 
-@media all and (min-width: 31.25rem) {
+@media all and (min-width: 500px) {
   .modal .modal__modal {
-    min-width: 25rem;
-    max-width: 37.5rem;
+    min-width: 400px;
+    max-width: 600px;
   }
 }
 
@@ -173,12 +173,12 @@ body > div[aria-hidden='true']:not(#sitemap) {
 
 .modal__close {
   position: absolute;
-  top: .5rem;
-  right: .5rem;
-  padding: .5rem;
-  font-size: 2rem;
+  width: 40px !important;
+  top: 8px;
+  right: 8px;
+  padding: 8px;
+  font-size: 32px;
   line-height: 1.25;
   text-transform: uppercase;
 }
-
 </style>

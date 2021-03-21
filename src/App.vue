@@ -38,7 +38,7 @@
           >
             <Card
               :thumb="character.image"
-              aria-label="image alt text"
+              :aria-label="character.name + 'image'"
               :text="character.name"
             />
             <Modal
@@ -206,7 +206,7 @@ export default {
       color: black;
       font-size: 18px;
       font-weight: 500;
-      text-indent: 0.75rem;
+      text-indent: 12px;
 
       @media (min-width: 769px) {
         margin-bottom: 0;
@@ -278,7 +278,7 @@ export default {
 .list-leave-active {
   transition: all 1s;
 }
-.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+.list-enter, .list-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }

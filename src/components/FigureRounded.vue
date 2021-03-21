@@ -30,16 +30,16 @@ export default {
 .figure {
   &-rounded {
     border-radius: 50%;
-    width: 8.125rem;
-    height: 8.125rem;
+    min-width: 130px;
+    min-height: 130px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     margin: 0;
 
     &--sml {
-      width: 5.9375rem;
-      height: 5.9375rem;
+      width: 95px;
+      height: 95px;
     }
   }
 }

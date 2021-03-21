@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <FigureRounded small :background-image="thumb" :aria-label="ariaLabel" />
+    <FigureRounded :background-image="thumb" :aria-label="ariaLabel" />
     <div class="card__content">
       <h2>
         {{ text }}
@@ -38,8 +38,8 @@ export default {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 16px;
+  justify-content: center;
+  flex-direction: column;
   height: 100%;
   
   &__content {
