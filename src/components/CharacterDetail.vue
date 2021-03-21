@@ -8,10 +8,12 @@
     <button class="btn character-detail__btn" @click="showEpisodes">
       {{ episodesButtonLabel }}
     </button>
+    <transition name="fade">
     <p class="character-detail__description" v-if="displayEpisodes">
       This caracter is in the episodes:
       {{ episodesContent }}
     </p>
+    </transition>
   </div>
 </template>
 
@@ -75,5 +77,12 @@ export default {
   &__btn {
     max-width: 180px;
   }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>

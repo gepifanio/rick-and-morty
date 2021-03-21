@@ -29,33 +29,41 @@
       </div>
     </header>
     <main>
-      <div class="content">
-      <div
-        class="content__card"
-        v-for="(character, index) in characters.results"
-        :key="index"
-      >
-        <Card
-          :thumb="character.image"
-          aria-label="image alt text"
-          :text="character.name"
-        />
-        <Modal
-          :title="character.name"
-          trigger="Open details"
-          @modal-open-dialog="getCharacterDetail(character.id)"
-        >
-          <CharacterDetail :data="characterDetail" />
-        </Modal>
+      <div>
+        <transition-group class="content" name="list" tag="div">
+          <div
+            class="content__card"
+            v-for="(character, index) in characters.results"
+            :key="index"
+          >
+            <Card
+              :thumb="character.image"
+              aria-label="image alt text"
+              :text="character.name"
+            />
+            <Modal
+              :title="character.name"
+              trigger="Open details"
+              @modal-open-dialog="getCharacterDetail(character.id)"
+            >
+              <CharacterDetail :data="characterDetail" />
+            </Modal>
+          </div>
+        </transition-group>
       </div>
+      <div class="content__no-results" v-if="!characters.results">
+        No results found
       </div>
-      <div class="content__no-results" v-if="!characters.results">No results found</div>
     </main>
     <footer v-if="characters.results">
       <PageCount :totalPages="totalPages" :currentPage="page" />
       <div class="footer__btns">
-        <button :disabled="!existPrev" class="btn" @click="previousPage">Previous</button>
-        <button :disabled="!existNext" class="btn" @click="nextPage">Next</button>
+        <button :disabled="!existPrev" class="btn" @click="previousPage">
+          Previous
+        </button>
+        <button :disabled="!existNext" class="btn" @click="nextPage">
+          Next
+        </button>
       </div>
     </footer>
   </div>
@@ -102,7 +110,7 @@ export default {
     },
     existNext() {
       return this.characters.info.next;
-    }
+    },
   },
   methods: {
     nextPage() {
@@ -255,10 +263,23 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-  
+
     .btn {
       width: auto;
     }
   }
+}
+
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active,
+.list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
 }
 </style>
