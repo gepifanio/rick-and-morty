@@ -36,7 +36,7 @@
         <Modal
           title="Character Detail"
           trigger="Open details"
-          @modal-open-dialog="getCharacterDetail(index)"
+          @modal-open-dialog="getCharacterDetail(character.id)"
         >
           <CharacterDetail :data="characterDetail" />
         </Modal>
@@ -116,9 +116,8 @@ export default {
     resetPageNumber() {
       this.page = 1;
     },
-    getCharacterDetail(index) {
-      console.log('test', 'ouviu', index);
-      this.$store.dispatch('getCharacterDetail', index + 1);
+    getCharacterDetail(id) {
+      this.$store.dispatch('getCharacterDetail', id);
     },
   },
   mounted() {
