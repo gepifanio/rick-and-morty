@@ -5,6 +5,13 @@
       This is {{ data.name }} from the {{ data.species }} species and he is
       {{ data.status }}.
     </p>
+    <button class="btn character-detail__btn" @click="showEpisodes">
+      {{ episodesButtonLabel }}
+    </button>
+    <p class="character-detail__description" v-if="displayEpisodes">
+      This caracter is in the episodes:
+      {{ episodesContent }}
+    </p>
   </div>
 </template>
 
@@ -14,6 +21,34 @@ export default {
     data: {
       type: Object,
       default: '',
+    },
+  },
+  data() {
+    return {
+      displayEpisodes: false,
+    };
+  },
+  methods: {
+    showEpisodes() {
+      this.displayEpisodes = !this.displayEpisodes;
+    },
+  },
+  computed: {
+    episodesButtonLabel() {
+      if (this.displayEpisodes) {
+        return 'Hide Episodes';
+      } else {
+        return 'Show Episodes';
+      }
+    },
+    episodesContent() {
+      const API_URL = 'https://rickandmortyapi.com/api/episode/';
+
+      const cleanData = this.data.episode.map((episode) =>
+        episode.replace(API_URL, '')
+      );
+
+      return cleanData.join(', ');
     },
   },
 };
@@ -35,6 +70,10 @@ export default {
 
   &__description {
     font-size: 18px;
+  }
+
+  &__btn {
+    max-width: 180px;
   }
 }
 </style>
