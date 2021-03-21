@@ -26,13 +26,15 @@
           <Card
             :thumb="character.image"
             aria-label="image alt text"
-            href="#"
             title="Character"
             :text="character.name"
-            button-label="Open details"
           />
+          <button @click="openDetailsClick(index)">Open details</button>
         </div>
         <div v-if="!characters.results">No results found</div>
+      </div>
+      <div>
+        <Popup v-if="openDetails" :data="characterDetail" />
       </div>
     </main>
     <footer v-if="characters.results">
@@ -50,22 +52,28 @@
 <script>
 import Card from './components/Card.vue';
 import Pagination from './components/Pagination.vue';
+import Popup from './components/Popup.vue';
 
 export default {
   name: 'App',
   components: {
     Card,
     Pagination,
+    Popup
   },
   data() {
     return {
       searchCharacterName: '',
       page: 1,
+      openDetails: false,
     };
   },
   computed: {
     characters() {
       return this.$store.getters.characters;
+    },
+    characterDetail() {
+      return this.$store.getters.characterDetail;
     },
     totalPages() {
       return this.characters.info.pages;
@@ -103,6 +111,13 @@ export default {
     resetPageNumber() {
       this.page = 1;
     },
+    openDetailsClick(index) {
+      this.getCharacterDetail(index);
+      this.openDetails = true;
+    },
+    getCharacterDetail(index) {
+      this.$store.dispatch('getCharacterDetail', index + 1);
+    }
   },
   mounted() {
     this.getCurrentPageCharacters();
@@ -132,7 +147,7 @@ export default {
   }
 
   &__btn {
-    
+
   }
 }
 

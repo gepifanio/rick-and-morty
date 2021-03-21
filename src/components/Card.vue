@@ -12,11 +12,6 @@
           {{ text }}
         </p>
       </div>
-      <div>
-        <button>
-          {{ buttonLabel }}
-        </button>
-      </div>
     </div>
   </div>
 </template>
@@ -42,14 +37,6 @@ export default {
       default: '',
     },
     text: {
-      type: String,
-      default: '',
-    },
-    buttonLabel: {
-      type: String,
-      default: '',
-    },
-    href: {
       type: String,
       default: '',
     },
