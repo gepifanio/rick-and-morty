@@ -34,7 +34,7 @@
           :text="character.name"
         />
         <Modal
-          title="Details"
+          :title="character.name"
           trigger="Open details"
           @modal-open-dialog="getCharacterDetail(character.id)"
         >
@@ -183,23 +183,42 @@ export default {
 }
 
 .content {
-  margin-bottom: 24px;
+  margin-bottom: 60px;
+
+      @media (min-width: 640px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 16px;
+  }
+
+    @media (min-width: 1350px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 32px;
+  }
+
+  @media (min-width: 1500px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 36px;
+  }
 
   &__card {
     margin-bottom: 24px;
     padding-bottom: 24px;
     border-bottom: 1px solid gray;
-
-    &:first-child {
-      padding-top: 24px;
-      border-top: 1px solid gray;
-    }
   }
 }
 
 .footer {
   &__btns {
     display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .btn {
+      width: 120px;
+    }
   }
 }
 </style>

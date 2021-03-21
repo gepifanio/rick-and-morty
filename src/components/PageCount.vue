@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <p>Showing page {{ currentPage }} of {{ totalPages }}</p>
-  </div>
+    <p class="page-count__label">Showing page {{ currentPage }} of {{ totalPages }}</p>
 </template>
 
 <script>
@@ -19,4 +17,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.page-count {
+  &__label {
+    font-size: 18px;
+  }
+}
+</style>
