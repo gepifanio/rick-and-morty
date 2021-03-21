@@ -34,7 +34,7 @@
           :text="character.name"
         />
         <Modal
-          title="Character Detail"
+          title="Details"
           trigger="Open details"
           @modal-open-dialog="getCharacterDetail(character.id)"
         >
